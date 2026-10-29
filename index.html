@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>নতুন দিগন্ত</title><link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1f7a4d;--gd:#0f4d31;--gl:#e6f4ec;--o:#f28a1e;--ink:#17261f;--line:#cfe5d8}
+*{box-sizing:border-box}body{margin:0;background:#f6fbf8;color:var(--ink);font:16px/1.7 'Hind Siliguri',sans-serif}
+header{background:linear-gradient(135deg,var(--gd),var(--g));color:#fff;padding:14px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+header div{display:flex;align-items:center;gap:10px}header img{height:54px}header b{font-size:22px}
+main{max-width:1100px;margin:auto;padding:16px 12px 40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.auth{max-width:380px;margin:30px auto}.auth input{width:100%;margin:6px 0}
+input,select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:9px}
+button{font:inherit;font-weight:600;background:var(--g);color:#fff;border:0;border-radius:9px;padding:9px 16px;cursor:pointer}
+button.o{background:var(--o)}button.w{background:#fff;color:var(--g);border:1px solid #fff}button.s{padding:3px 10px;font-size:14px}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px}.tabs button{background:#fff;color:var(--g);border:1px solid var(--g);white-space:nowrap}.tabs .on{background:var(--g);color:#fff}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.st div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;border-left:6px solid var(--o)}.st b{display:block;font-size:25px;color:var(--g)}
+.w{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:6px 8px;text-align:right;white-space:nowrap}
+th{background:var(--g);color:#fff}tbody tr:nth-child(odd){background:#fff}tbody tr:nth-child(even){background:var(--gl)}
+td input{width:74px;padding:4px 6px}td input.t{width:130px}.err{color:#c0392b}.mu{color:#6b7f74}
+.ch{display:flex;align-items:flex-end;gap:5px;height:230px;overflow-x:auto;padding-top:6px}
+.col{flex:1 0 36px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:11px}
+.col i{width:75%;border-radius:6px 6px 0 0;min-height:2px;transition:height .8s}.col:nth-child(odd) i{background:var(--g)}.col:nth-child(even) i{background:var(--o)}
+</style></head><body>
+<header><div><img src="logo.png" alt="লোগো"><b>নতুন দিগন্ত</b></div><button class="w" id="out" hidden>লগআউট</button></header>
+<main id="app"></main>
+<script type="module">
+const firebaseConfig={apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT.firebaseapp.com",projectId:"YOUR_PROJECT",appId:"YOUR_APP_ID"};
+const V='10.14.1',B='https://www.gstatic.com/firebasejs/'+V+'/';
+const {initializeApp}=await import(B+'firebase-app.js');
+const A=await import(B+'firebase-auth.js'),F=await import(B+'firebase-firestore.js');
+const {doc,getDoc,setDoc,getDocs,collection,updateDoc,addDoc,query,orderBy,limit,writeBatch,serverTimestamp}=F;
+const app=initializeApp(firebaseConfig),au=A.getAuth(app),db=F.getFirestore(app);
+const $=s=>document.querySelector(s),bn=n=>Number(n||0).toLocaleString('bn-BD'),sum=a=>a.reduce((x,y)=>x+y,0);
+const MO=['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'];
+const norm=p=>{p=String(p).replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d)).replace(/\D/g,'');return p.length==10?'0'+p:p};
+const mail=p=>norm(p)+'@ndigonto.app',tot=m=>m.b25+sum(m.m)-m.refund,app$=h=>$('#app').innerHTML=h;
+const S={members:[],cash:[],users:[],logs:[]};let me=null,signing=false,tab=0;
+const bars=(v,l)=>{const mx=Math.max(1,...v);return '<div class="ch">'+v.map((x,i)=>`<div class="col"><span>${x?bn(x):''}</span><i style="height:${x/mx*165}px"></i><span>${l[i]}</span></div>`).join('')+'</div>'};
+const stats=a=>'<div class="st">'+a.map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join('')+'</div>';
+const lab=[...MO.slice(5).map(x=>x+' ২৫'),...MO.map(x=>x+' ২৬')];
+const series=m=>[...m.m25,...m.m];
+function authUI(msg=''){app$(`<div class="card auth"><h2>লগইন / অ্যাকাউন্ট খুলুন</h2><p class="mu">তালিকায় থাকা আপনার মোবাইল নম্বর দিন। অ্যাকাউন্ট খুললে অ্যাডমিন অনুমোদন দিলে তবেই তথ্য দেখতে পাবেন।</p><input id="ph" inputmode="numeric" placeholder="মোবাইল নম্বর"><input id="pw" type="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)"><p class="err">${msg}</p><button id="li">লগইন</button> <button class="o" id="su">অ্যাকাউন্ট খুলুন</button></div>`);
+ const cr=()=>[mail($('#ph').value),$('#pw').value];
+ $('#li').onclick=()=>A.signInWithEmailAndPassword(au,...cr()).catch(()=>authUI('নম্বর বা পাসওয়ার্ড ভুল'));
+ $('#su').onclick=async()=>{const p=norm($('#ph').value);if(!/^01\d{9}$/.test(p))return authUI('সঠিক মোবাইল নম্বর দিন');signing=true;
+  try{const c=await A.createUserWithEmailAndPassword(au,...cr());await setDoc(doc(db,'users',c.user.uid),{phone:p,status:'pending',role:'member',createdAt:serverTimestamp()});signing=false;route(c.user)}
+  catch(e){signing=false;authUI(e.code=='auth/email-already-in-use'?'এই নম্বরে অ্যাকাউন্ট আছে, লগইন করুন':'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন')}}}
+async function route(u){if(!u)return authUI();$('#out').hidden=false;
+ const d=await getDoc(doc(db,'users',u.uid));if(!d.exists())return app$('<div class="card">অ্যাকাউন্ট তথ্য পাওয়া যায়নি।</div>');me={uid:u.uid,...d.data()};
+ if(me.status=='pending')return app$('<div class="card"><h2>অনুমোদনের অপেক্ষায়</h2>অ্যাডমিন আপনার অ্যাকাউন্ট অনুমোদন করলে তথ্য দেখতে পারবেন। পরে আবার লগইন করুন।</div>');
+ if(me.status!='approved')return app$('<div class="card err">আপনার অনুরোধ গ্রহণ করা হয়নি। অ্যাডমিনের সাথে যোগাযোগ করুন।</div>');
+ me.role=='admin'?adminUI():memberUI()}
+$('#out').onclick=()=>{A.signOut(au);$('#out').hidden=true};
+A.onAuthStateChanged(au,u=>{if(!signing)route(u)});
+async function memberUI(){const [m,s]=await Promise.all([getDoc(doc(db,'members',me.memberId||'x')),getDoc(doc(db,'summary','main'))]);
+ if(!m.exists())return app$('<div class="card">আপনার তথ্য এখনো যোগ হয়নি।</div>');const x=m.data(),t=s.data()||{};
+ app$(`<h2>${x.name}</h2>${stats([['৳ '+bn(tot(x)),'আপনার মোট সঞ্চয়'],[x.bg||'–','রক্তের গ্রুপ'],['৳ '+bn(x.fee),'ভর্তি ফি'],['৳ '+bn(x.refund),'ফেরত নিয়েছেন']])}<div class="card"><h3>আপনার মাসিক জমা</h3>${bars(series(x),lab)}</div><div class="card"><h3>প্রতিষ্ঠানের সারাংশ</h3>${stats([[bn(t.count)+' জন','মোট সদস্য'],['৳ '+bn(t.cash),'ক্যাশ ব্যালেন্স']])}</div><p class="mu">তথ্য শুধু অ্যাডমিন পরিবর্তন করতে পারেন।</p>`)}
+async function load(){const g=async(n,...q)=>(await getDocs(query(collection(db,n),...q))).docs.map(d=>({id:d.id,...d.data()}));
+ [S.members,S.cash,S.users,S.logs]=await Promise.all([g('members'),g('cash',orderBy('i')),g('users'),g('logs',orderBy('ts','desc'),limit(30))]);S.members.sort((a,b)=>a.sl-b.sl)}
+const log=async t=>{await addDoc(collection(db,'logs'),{by:me.phone,t,ts:serverTimestamp()})};
+async function summ(){const c=S.cash.at(-1);await setDoc(doc(db,'summary','main'),{count:S.members.length,total:sum(S.members.map(tot)),cash:c?c.tot:0,fees:sum(S.members.map(m=>m.fee))})}
+async function adminUI(){await load();const T=['অনুমোদন','সদস্য','ক্যাশ খাতা','চার্ট','লগ','ডাটা'];
+ app$(`<div class="tabs">${T.map((t,i)=>`<button class="${i==tab?'on':''}" data-i="${i}">${t}</button>`).join('')}</div><div id="v"></div>`);
+ document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=+b.dataset.i;adminUI()});
+ const v=$('#v'),mem=p=>S.members.find(m=>m.phone&&m.phone==p);
+ if(tab==0){v.innerHTML=`<div class="card w"><table><thead><tr><th>নম্বর</th><th>তালিকার সদস্য</th><th>অবস্থা</th><th></th></tr></thead><tbody>${S.users.map(u=>{const m=mem(u.phone);return `<tr><td>${u.phone}</td><td>${m?m.name:'<span class=err>মেলেনি</span>'}</td><td>${u.status} ${u.role=='admin'?'(অ্যাডমিন)':''}</td><td>${u.status!='approved'&&m?`<button class="s" data-a="${u.id}|${m.id}">অনুমোদন</button> `:''}${u.status=='pending'?`<button class="s o" data-r="${u.id}">বাতিল</button>`:''}${u.status=='approved'&&u.role!='admin'?`<button class="s" data-m="${u.id}">অ্যাডমিন করুন</button>`:''}</td></tr>`}).join('')}</tbody></table></div>`;
+  v.onclick=async e=>{const d=e.target.dataset;if(d.a){const [id,mid]=d.a.split('|');await updateDoc(doc(db,'users',id),{status:'approved',memberId:mid});await log('অনুমোদন '+mid)}
+   else if(d.r)await updateDoc(doc(db,'users',d.r),{status:'rejected'});else if(d.m&&confirm('নতুন অ্যাডমিন করবেন?')){await updateDoc(doc(db,'users',d.m),{role:'admin'});await log('অ্যাডমিন যোগ')}else return;adminUI()}}
+ if(tab==1){const K=['b25',...Array(12).keys(),'refund','fee'];
+  v.innerHTML=`<div class="card w"><table><thead><tr><th>#</th><th>নাম</th><th>রক্ত</th><th>মোবাইল</th><th>২০২৫</th>${MO.map(x=>`<th>${x}</th>`).join('')}<th>ফেরত</th><th>ভর্তি</th><th>মোট</th><th></th></tr></thead><tbody>${S.members.map(m=>`<tr data-id="${m.id}"><td>${bn(m.sl)}</td><td><input class="t" data-k="name" value="${m.name}"></td><td><input data-k="bg" value="${m.bg||''}" style="width:50px"></td><td><input class="t" data-k="phone" value="${m.phone||''}"></td>${K.map(k=>`<td><input type="number" min="0" data-k="${k}" value="${typeof k=='number'?m.m[k]:m[k]}"></td>`).join('')}<td class="tt">${bn(tot(m))}</td><td><button class="s">সংরক্ষণ</button></td></tr>`).join('')}</tbody></table></div><button class="o" id="nm">+ নতুন সদস্য</button>`;
+  v.oninput=e=>{const tr=e.target.closest('tr'),m=S.members.find(x=>x.id==tr.dataset.id),k=e.target.dataset.k,val=e.target.value;if(['name','bg','phone'].includes(k))m[k]=k=='phone'?val.replace(/\D/g,''):val;else if(/^\d+$/.test(k))m.m[+k]=+val||0;else m[k]=+val||0;tr.querySelector('.tt').textContent=bn(tot(m))};
+  v.onclick=async e=>{if(e.target.id=='nm'){const sl=Math.max(0,...S.members.map(m=>m.sl))+1,m={id:''+sl,sl,name:'নতুন সদস্য',bg:'',phone:'',b25:0,m25:Array(7).fill(0),m:Array(12).fill(0),refund:0,fee:20};m.total=0;await setDoc(doc(db,'members',m.id),m);await summ();return adminUI()}
+   const tr=e.target.closest('tr');if(e.target.tagName!='BUTTON'||!tr)return;const m=S.members.find(x=>x.id==tr.dataset.id);m.total=tot(m);await setDoc(doc(db,'members',m.id),m);await log('সদস্য সংরক্ষণ: '+m.name+' মোট '+m.total);await summ();e.target.textContent='✓ হয়েছে'}}
+ if(tab==2){const last=S.cash.at(-1);v.innerHTML=`<div class="card"><b>নতুন এন্ট্রি</b><br><input id="cd" type="date"> <input id="cr" type="number" placeholder="জমা"> <input id="cp" type="number" placeholder="খরচ"> <button id="ca">যোগ করুন</button></div><div class="card w"><table><thead><tr><th>তারিখ</th><th>জমা</th><th>খরচ</th><th>নিট</th><th>মোট ক্যাশ</th></tr></thead><tbody>${S.cash.map(c=>`<tr><td>${c.d}</td><td>${bn(c.rec)}</td><td>${bn(c.pay)}</td><td>${bn(c.rec-c.pay)}</td><td><b>${bn(c.tot)}</b></td></tr>`).join('')}</tbody></table></div>`;
+  $('#ca').onclick=async()=>{const d=$('#cd').value,r=+$('#cr').value||0,p=+$('#cp').value||0;if(!d)return alert('তারিখ দিন');const i=(last?last.i:0)+1;
+   await setDoc(doc(db,'cash',String(i).padStart(4,'0')),{i,d:d.split('-').reverse().join('-'),rec:r,pay:p,tot:(last?last.tot:0)+r-p});await log('ক্যাশ এন্ট্রি '+d);await load();await summ();adminUI()}}
+ if(tab==3){const vs=lab.map((_,i)=>sum(S.members.map(m=>series(m)[i])));v.innerHTML=`${stats([[bn(S.members.length)+' জন','সদস্য'],['৳ '+bn(sum(S.members.map(tot))),'মোট সঞ্চয়'],['৳ '+bn(S.cash.at(-1)?.tot),'ক্যাশ ব্যালেন্স']])}<div class="card"><h3>মাসিক মোট জমা</h3>${bars(vs,lab)}</div><div class="card"><h3>সদস্যভিত্তিক মোট সঞ্চয়</h3>${bars(S.members.map(tot),S.members.map(m=>m.name.split(' ')[0]))}</div>`}
+ if(tab==4)v.innerHTML=`<div class="card w"><table><tbody>${S.logs.map(l=>`<tr><td>${l.ts?l.ts.toDate().toLocaleString('bn-BD'):''}</td><td>${l.by}</td><td style="text-align:left">${l.t}</td></tr>`).join('')}</tbody></table></div>`;
+ if(tab==5){v.innerHTML=`<div class="card"><h3>প্রথম ডাটা আপলোড</h3><p>কম্পিউটারে রাখা <b>seed.json</b> ফাইলটি দিন (এটি GitHub-এ তুলবেন না)।</p><input type="file" id="sf" accept=".json"></div>`;
+  $('#sf').onchange=async e=>{const j=JSON.parse(await e.target.files[0].text());if(!confirm(j.members.length+' জন সদস্যের তথ্য আপলোড হবে। চালিয়ে যাবেন?'))return;const b=writeBatch(db);j.members.forEach(m=>b.set(doc(db,'members',m.id),m));j.cash.forEach((c,k)=>b.set(doc(db,'cash',String(k+1).padStart(4,'0')),{i:k+1,...c}));await b.commit();await load();await summ();await log('seed আপলোড');alert('হয়েছে');tab=1;adminUI()}}}
+</script></body></html>
