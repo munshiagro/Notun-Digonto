@@ -1,83 +1,218 @@
 <!DOCTYPE html>
-<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="bn"><head><meta charset="utf-8"><meta name="theme-color" content="#1f7a4d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="নতুন দিগন্ত"><link rel="apple-touch-icon" href="logo.png"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>নতুন দিগন্ত</title><link rel="icon" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--g:#1f7a4d;--gd:#0f4d31;--gl:#e6f4ec;--o:#f28a1e;--ink:#17261f;--line:#cfe5d8}
-*{box-sizing:border-box}body{margin:0;background:#f6fbf8;color:var(--ink);font:16px/1.7 'Hind Siliguri',sans-serif}
-header{background:linear-gradient(135deg,var(--gd),var(--g));color:#fff;padding:14px;display:flex;align-items:center;gap:12px;justify-content:space-between}
-header div{display:flex;align-items:center;gap:10px}header img{height:54px}header b{font-size:22px}
-main{max-width:1100px;margin:auto;padding:16px 12px 40px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
-.auth{max-width:380px;margin:30px auto}.auth input{width:100%;margin:6px 0}
-input,select{font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:9px}
-button{font:inherit;font-weight:600;background:var(--g);color:#fff;border:0;border-radius:9px;padding:9px 16px;cursor:pointer}
-button.o{background:var(--o)}button.w{background:#fff;color:var(--g);border:1px solid #fff}button.s{padding:3px 10px;font-size:14px}
-.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px}.tabs button{background:#fff;color:var(--g);border:1px solid var(--g);white-space:nowrap}.tabs .on{background:var(--g);color:#fff}
-.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
-.st div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;border-left:6px solid var(--o)}.st b{display:block;font-size:25px;color:var(--g)}
-.w{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:6px 8px;text-align:right;white-space:nowrap}
-th{background:var(--g);color:#fff}tbody tr:nth-child(odd){background:#fff}tbody tr:nth-child(even){background:var(--gl)}
-td input{width:74px;padding:4px 6px}td input.t{width:130px}.err{color:#c0392b}.mu{color:#6b7f74}
-.ch{display:flex;align-items:flex-end;gap:5px;height:230px;overflow-x:auto;padding-top:6px}
-.col{flex:1 0 36px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:11px}
-.col i{width:75%;border-radius:6px 6px 0 0;min-height:2px;transition:height .8s}.col:nth-child(odd) i{background:var(--g)}.col:nth-child(even) i{background:var(--o)}
+:root{--g:#1f7a4d;--gd:#0f4d31;--gl:#e8f5ee;--o:#f28a1e;--ink:#17261f;--mu:#6b7f74;--line:#d4e8dc}
+*{box-sizing:border-box}body{margin:0;background:#f3f9f5;color:var(--ink);font:16px/1.7 'Hind Siliguri',sans-serif}
+header{position:sticky;top:0;z-index:5;background:linear-gradient(120deg,var(--gd),var(--g));color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px #0f4d3140}
+header div{display:flex;align-items:center;gap:10px}header img{height:46px}header b{font-size:21px}
+main{max-width:1120px;margin:auto;padding:16px 12px 48px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px #1f7a4d12}
+.card h3{margin:0 0 10px;font-size:18px;color:var(--gd)}
+.auth{max-width:400px;margin:24px auto;text-align:center}.auth .lg{height:96px}.auth label{display:block;text-align:left;font-weight:600;margin-top:10px}
+.auth input{width:100%}.sw{margin:14px 0 0;color:var(--mu)}.sw a{color:var(--g);font-weight:600}
+input,select{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px #1f7a4d22}
+button{font:inherit;font-weight:600;background:var(--g);color:#fff;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;transition:.15s}button:hover{filter:brightness(1.1)}button:disabled{opacity:.6}
+button.o{background:var(--o)}button.g2{background:#e4ece7;color:var(--ink)}button.w{background:#ffffff26;border:1px solid #fff6}button.s{padding:3px 11px;font-size:14px}button.full{width:100%;margin-top:16px;padding:12px}
+.pw{position:relative}.pw input{padding-right:48px}.eye{position:absolute;right:4px;top:4px;background:none;color:var(--mu);padding:6px 10px}.eye svg{width:22px;height:22px;display:block}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px;padding-bottom:4px}.tabs button{background:#fff;color:var(--g);border:1.5px solid var(--line);white-space:nowrap;border-radius:99px;padding:7px 16px}.tabs .on{background:var(--g);color:#fff;border-color:var(--g)}
+.bd{background:var(--o);color:#fff;border-radius:99px;padding:0 7px;font-size:12px;margin-left:4px}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin-bottom:14px}
+.st>div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 8px #1f7a4d12}
+.st .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:var(--gl)}.st>div:nth-child(even) .ic{background:#fdeedb}
+.st b{display:block;font-size:23px;line-height:1.2;color:var(--g)}.st small{color:var(--mu)}
+.hero{background:linear-gradient(135deg,var(--gd),var(--g) 60%,#2fa56d);color:#fff;border-radius:20px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;background:#f28a1e55}
+.hero h2{margin:0;font-size:22px}.hero b{display:block;font-size:40px;line-height:1.3}.hero span.ch{display:inline-block;background:#ffffff26;border-radius:99px;padding:1px 12px;margin:6px 6px 0 0;font-size:14px}
+.g2c{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.g2c{grid-template-columns:1fr}}
+.w2{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:7px 9px;text-align:right;white-space:nowrap}
+th{background:var(--g);color:#fff;font-weight:600}th:first-child{border-radius:10px 0 0 0}th:last-child{border-radius:0 10px 0 0}tbody tr:nth-child(odd){background:#fff}tbody tr:nth-child(even){background:var(--gl)}
+td input{width:76px;padding:4px 6px;border-radius:7px}td input.t{width:140px}.err{color:#c0392b}.mu{color:var(--mu)}
+.chip{border-radius:99px;padding:1px 10px;font-size:13px;background:var(--gl);color:var(--g)}.chip.p{background:#fdeedb;color:#b86a0b}.chip.r{background:#fbe3e0;color:#c0392b}
+.cht{display:flex;align-items:flex-end;gap:5px;height:230px;overflow-x:auto;padding-top:6px}
+.col{flex:1 0 38px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:11px}
+.col i{width:76%;border-radius:7px 7px 0 0;min-height:2px;transform-origin:bottom;animation:gr .9s ease both}.col:nth-child(odd) i{background:linear-gradient(var(--g),#2fa56d)}.col:nth-child(even) i{background:linear-gradient(var(--o),#f6b46a)}
+@keyframes gr{from{transform:scaleY(0)}}
+.dn{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;position:relative}.ring:before{content:"";position:absolute;inset:26px;background:#fff;border-radius:50%}.ring span{position:relative;font-weight:700;color:var(--g)}
+.dn ul{list-style:none;margin:0;padding:0;flex:1;min-width:150px;font-size:14px}.dn li i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px}.dn li b{float:right}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px}.mg div{background:var(--gl);border-radius:12px;padding:6px 10px;text-align:center;font-size:14px}.mg div:nth-child(even){background:#fdeedb}.mg b{display:block;color:var(--gd)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.bar input{flex:1;min-width:160px}
+.ld{text-align:center;padding:60px;color:var(--mu)}.ld:before{content:"";display:block;width:36px;height:36px;margin:0 auto 10px;border:4px solid var(--line);border-top-color:var(--g);border-radius:50%;animation:sp .8s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+#tc{position:fixed;left:0;right:0;bottom:18px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:20;pointer-events:none}
+.toast{background:var(--gd);color:#fff;padding:10px 20px;border-radius:12px;box-shadow:0 6px 20px #0003;animation:ti .25s ease;max-width:90vw}.toast.er{background:#b83a2d}.toast.out{opacity:0;transform:translateY(8px);transition:.4s}@keyframes ti{from{opacity:0;transform:translateY(12px)}}
+.ov{position:fixed;inset:0;background:#0f2a1c80;display:grid;place-items:center;z-index:30;padding:20px;animation:ti .2s}.md{background:#fff;border-radius:18px;padding:22px;max-width:340px;width:100%;text-align:center;box-shadow:0 10px 40px #0004}.md p{margin:0 0 16px;font-size:17px}
+.big{text-align:center;padding:30px 16px}.big .e{font-size:54px}
+<style>
+:root{--r:14px;--sh:0 1px 2px #0f4d3110,0 6px 18px #0f4d3114}
+body{background:#f1f7f3}
+header{backdrop-filter:blur(8px);padding:10px 18px}header img{height:42px;background:#fff;border-radius:10px;padding:3px}
+main{padding-top:18px}
+.card{border-radius:var(--r);box-shadow:var(--sh);padding:18px}
+.card h3{display:flex;align-items:center;gap:8px;font-size:17px;margin-bottom:12px}.card h3:before{content:"";width:4px;height:18px;border-radius:3px;background:var(--o)}
+.big h3,.auth h3{justify-content:center}.big h3:before{display:none}
+.auth{padding:30px 24px;margin:32px auto}.auth input{padding:11px 14px}
+.pw{position:relative}.pw input{padding-right:52px}
+.pw .eye{position:absolute;right:5px;top:50%;transform:translateY(-50%);width:40px;height:40px;padding:0;display:grid;place-items:center;background:transparent;color:var(--mu);border-radius:10px;filter:none}
+.pw .eye:hover{background:var(--gl);color:var(--g);filter:none}.pw .eye.on{color:var(--g)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #f28a1e66;outline-offset:2px}
+.tabs{padding:2px 2px 8px}.tabs button{box-shadow:0 1px 3px #1f7a4d14}.tabs button:hover{background:var(--gl);filter:none}.tabs .on,.tabs .on:hover{background:var(--g);box-shadow:0 4px 12px #1f7a4d40}
+.st>div{border-radius:var(--r);box-shadow:var(--sh)}.st b{font-size:22px}
+.st>div:nth-child(3n+1) .ic{background:var(--gl)}.st>div:nth-child(3n+2) .ic{background:#fdeedb}.st>div:nth-child(3n) .ic{background:#e6f0fb}
+.hero{border-radius:var(--r);padding:22px 24px;box-shadow:0 8px 24px #0f4d3133}.hero>*{position:relative;z-index:1}.hero small{opacity:.85;font-size:15px}
+.hero b{font-size:42px}.hero span.ch{height:auto;overflow:visible;padding:2px 12px}
+.prog{height:8px;background:#ffffff33;border-radius:9px;margin-top:14px;overflow:hidden}.prog i{display:block;height:100%;background:#ffc980;border-radius:9px;transition:width .9s ease}
+.alert{display:flex;align-items:center;gap:10px;background:#fff6ea;border:1px solid #f6d3a4;color:#8a4b05;border-radius:var(--r);padding:11px 16px;margin-bottom:14px;cursor:pointer;font-weight:600;transition:.15s}.alert:hover{background:#ffefd8}.alert span{margin-left:auto}
+.cht{border-bottom:1px solid var(--line)}.col span{color:var(--mu)}.col span:first-child{color:var(--gd);font-weight:600}.col i:hover{filter:brightness(1.1)}
+.ring{width:160px;height:160px}.ring:before{inset:30px}.ring span{font-size:16px}.dn li{padding:3px 0;border-bottom:1px dashed var(--line)}
+table{font-variant-numeric:tabular-nums}td{border-bottom:1px solid #e9f2ec}tbody tr:hover{background:#dff1e6}
+td input{border-color:transparent;background:transparent}td input:hover{border-color:var(--line)}td input:focus{background:#fff}
+.mg div{border-radius:var(--r)}
+#tc{top:14px;bottom:auto;padding:0 12px}
+.toast{position:relative;overflow:hidden;display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border:1px solid var(--line);border-left:5px solid var(--g);padding:11px 18px 12px 12px;border-radius:12px;box-shadow:0 10px 30px #0f4d3128;min-width:230px;animation:td .35s cubic-bezier(.2,.9,.3,1.2) both;transition:.35s}
+.toast.er{background:#fff;border-left-color:#d64535}
+.toast .ti{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--g);color:#fff;font-size:14px;font-weight:700}.toast.er .ti{background:#d64535}
+.toast .tp{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--g);opacity:.4;transform-origin:left;animation:tp 3s linear forwards}.toast.er .tp{background:#d64535}
+.toast.out{opacity:0;transform:translateY(-12px)}
+@keyframes td{from{opacity:0;transform:translateY(-18px) scale(.96)}}@keyframes tp{to{transform:scaleX(0)}}
+.ov{background:#0f2a1c73;backdrop-filter:blur(4px);transition:opacity .16s}.ov.out{opacity:0}
+.md{border-radius:20px;padding:26px 22px 20px;max-width:360px;animation:mi .25s cubic-bezier(.2,.9,.3,1.2)}
+.md .mi{width:54px;height:54px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:#fdeedb;color:var(--o);font-size:28px;font-weight:700}
+.md p{margin:0 0 20px}.mb{display:flex;gap:10px}.mb button{flex:1;padding:11px}
+@keyframes mi{from{opacity:0;transform:scale(.92) translateY(10px)}}
+textarea{font:inherit;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;resize:vertical;background:#fff;color:var(--ink)}textarea:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px #1f7a4d22}
+select{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.bar select{flex:1;min-width:130px}
+.mg div.due,.mg div.due:nth-child(even){background:#fbe3e0}.mg div.due b{color:#c0392b}
+.pf{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0}.pf dt{color:var(--mu)}.pf dd{margin:0;font-weight:600}
+.nt{border-left:5px solid var(--o)}.nt h3:before{display:none}.nt p{margin:0 0 6px}
+.rk{display:flex;align-items:center;gap:12px;margin-bottom:10px}.rk b{font-size:40px;color:var(--g);line-height:1}
+.prog2{height:10px;background:var(--gl);border-radius:9px;overflow:hidden}.prog2 i{display:block;height:100%;background:var(--g);border-radius:9px;transition:width .9s ease}
+tr.off td:not(:last-child){opacity:.45}
+.dr{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--line)}.dr:last-child{border:0}.dr small{display:block}.ac{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+a.lk{display:inline-block;padding:3px 12px;border-radius:10px;background:var(--gl);color:var(--g);font-weight:600;font-size:14px;text-decoration:none}a.lk:hover{background:#d6eddf}
+.bgp{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.bgp button{padding:9px 0}
+.tg{display:flex;gap:10px;align-items:center;cursor:pointer}.tg input{width:20px;height:20px;accent-color:var(--g)}
+.ef{text-align:left}.ef h3{margin:0 0 4px;color:var(--gd)}.ef label{display:block;font-weight:600;margin-top:10px}.ef input{width:100%}.ef .mb{margin-top:18px}
+@media(max-width:560px){main{padding:12px 8px 40px}.hero b{font-size:34px}header b{font-size:18px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head><body>
-<header><div><img src="logo.png" alt="লোগো"><b>নতুন দিগন্ত</b></div><button class="w" id="out" hidden>লগআউট</button></header>
-<main id="app"></main>
+<header><div><img src="logo.png" alt="লোগো"><b>নতুন দিগন্ত</b></div><span style="display:flex;gap:8px"><button class="w" id="ins" hidden>📲 অ্যাপ ইনস্টল</button><button class="w" id="out" hidden>লগআউট</button></span></header>
+<main id="app"></main><div id="tc"></div>
 <script type="module">
 const firebaseConfig={apiKey:"AIzaSyBBxgWr5hFBQVkreLZs4lqfZdwpDjJ2iS0",authDomain:"notun-digonto-87e1b.firebaseapp.com",projectId:"notun-digonto-87e1b",appId:"1:1030288632242:web:83a6c8bc16f57a863b1cab"};
 const V='10.14.1',B='https://www.gstatic.com/firebasejs/'+V+'/';
 const {initializeApp}=await import(B+'firebase-app.js');
 const A=await import(B+'firebase-auth.js'),F=await import(B+'firebase-firestore.js');
-const {doc,getDoc,setDoc,getDocs,collection,updateDoc,addDoc,query,orderBy,limit,writeBatch,serverTimestamp}=F;
+const {doc,getDoc,setDoc,getDocs,collection,updateDoc,deleteDoc,addDoc,query,orderBy,limit,writeBatch,serverTimestamp}=F;
 const app=initializeApp(firebaseConfig),au=A.getAuth(app),db=F.getFirestore(app);
 const $=s=>document.querySelector(s),bn=n=>Number(n||0).toLocaleString('bn-BD'),sum=a=>a.reduce((x,y)=>x+y,0);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const MO=['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'];
 const norm=p=>{p=String(p).replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d)).replace(/\D/g,'');return p.length==10?'0'+p:p};
 const mail=p=>norm(p)+'@ndigonto.app',tot=m=>m.b25+sum(m.m)-m.refund,app$=h=>$('#app').innerHTML=h;
-const S={members:[],cash:[],users:[],logs:[]};let me=null,signing=false,tab=0;
-const bars=(v,l)=>{const mx=Math.max(1,...v);return '<div class="ch">'+v.map((x,i)=>`<div class="col"><span>${x?bn(x):''}</span><i style="height:${x/mx*165}px"></i><span>${l[i]}</span></div>`).join('')+'</div>'};
-const stats=a=>'<div class="st">'+a.map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join('')+'</div>';
-const lab=[...MO.slice(5).map(x=>x+' ২৫'),...MO.map(x=>x+' ২৬')];
-const series=m=>[...m.m25,...m.m];
-function authUI(msg=''){app$(`<div class="card auth"><h2>লগইন / অ্যাকাউন্ট খুলুন</h2><p class="mu">তালিকায় থাকা আপনার মোবাইল নম্বর দিন। অ্যাকাউন্ট খুললে অ্যাডমিন অনুমোদন দিলে তবেই তথ্য দেখতে পাবেন।</p><input id="ph" inputmode="numeric" placeholder="মোবাইল নম্বর"><input id="pw" type="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)"><p class="err">${msg}</p><button id="li">লগইন</button> <button class="o" id="su">অ্যাকাউন্ট খুলুন</button></div>`);
- const cr=()=>[mail($('#ph').value),$('#pw').value];
- $('#li').onclick=()=>A.signInWithEmailAndPassword(au,...cr()).catch(()=>authUI('নম্বর বা পাসওয়ার্ড ভুল'));
- $('#su').onclick=async()=>{const p=norm($('#ph').value);if(!/^01\d{9}$/.test(p))return authUI('সঠিক মোবাইল নম্বর দিন');signing=true;
-  try{const c=await A.createUserWithEmailAndPassword(au,...cr());await setDoc(doc(db,'users',c.user.uid),{phone:p,status:'pending',role:'member',createdAt:serverTimestamp()});signing=false;route(c.user)}
-  catch(e){signing=false;authUI(e.code=='auth/email-already-in-use'?'এই নম্বরে অ্যাকাউন্ট আছে, লগইন করুন':e.code=='auth/weak-password'?'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন':'ত্রুটি: '+(e.code||e.message))}}}
-async function route(u){if(!u)return authUI();$('#out').hidden=false;
- const d=await getDoc(doc(db,'users',u.uid));if(!d.exists())return app$('<div class="card">অ্যাকাউন্ট তথ্য পাওয়া যায়নি।</div>');me={uid:u.uid,...d.data()};
- if(me.status=='pending')return app$('<div class="card"><h2>অনুমোদনের অপেক্ষায়</h2>অ্যাডমিন আপনার অ্যাকাউন্ট অনুমোদন করলে তথ্য দেখতে পারবেন। পরে আবার লগইন করুন।</div>');
- if(me.status!='approved')return app$('<div class="card err">আপনার অনুরোধ গ্রহণ করা হয়নি। অ্যাডমিনের সাথে যোগাযোগ করুন।</div>');
+const S={members:[],cash:[],users:[],logs:[]};let me=null,signing=false,tab=0,MF={q:'',sort:'sl',f:'all',bg:''},DM=new Date().getMonth(),AMT=0,BGS='';const act=()=>S.members.filter(m=>m.active!==false),lim=()=>{const d=new Date(),y=d.getFullYear();return y>2026?11:y==2026?d.getMonth():-1};
+const EYE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+const EYE0='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 17.9A10.9 10.9 0 0 1 12 20C5 20 1 12 1 12a18 18 0 0 1 5.1-5.9M9.9 4.2A10.7 10.7 0 0 1 12 4c7 0 11 8 11 8a18 18 0 0 1-2.2 3.2M1 1l22 22"/></svg>';
+function toast(m,t=''){const e=t=='er',d=document.createElement('div');d.className='toast '+(e?'er':'');d.setAttribute('role',e?'alert':'status');d.innerHTML=`<span class="ti">${e?'!':'✓'}</span><span>${esc(m)}</span><i class="tp"></i>`;$('#tc').append(d);setTimeout(()=>d.classList.add('out'),3000);setTimeout(()=>d.remove(),3400)}
+const ask=(m,y='হ্যাঁ')=>new Promise(r=>{const o=document.createElement('div');o.className='ov';o.innerHTML=`<div class="md" role="dialog" aria-modal="true"><div class="mi">?</div><p>${m}</p><div class="mb"><button class="g2" id="n">না, থাক</button><button id="y">${y}</button></div></div>`;document.body.append(o);const k=e=>{if(e.key=='Escape')c(false)},c=v=>{document.removeEventListener('keydown',k);o.classList.add('out');setTimeout(()=>o.remove(),160);r(v)};document.addEventListener('keydown',k);o.querySelector('#y').onclick=()=>c(true);o.querySelector('#n').onclick=()=>c(false);o.onclick=e=>{if(e.target==o)c(false)};o.querySelector('#y').focus()});
+window.addEventListener('unhandledrejection',e=>{const c=String(e.reason?.code||e.reason?.message||'');toast(/permission/.test(c)?'এই কাজের অনুমতি নেই':/network|unavailable/.test(c)?'ইন্টারনেট সংযোগ চেক করুন':'কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন','er')});
+const bars=(v,l)=>{const mx=Math.max(1,...v);return '<div class="cht">'+v.map((x,i)=>`<div class="col"><span>${x?bn(x):''}</span><i style="height:${x/mx*165}px"></i><span>${l[i]}</span></div>`).join('')+'</div>'};
+const stats=a=>'<div class="st">'+a.map(x=>`<div><span class="ic">${x[0]}</span><span><b>${x[1]}</b><small>${x[2]}</small></span></div>`).join('')+'</div>';
+const PAL=['#1f7a4d','#f28a1e','#4fb286','#f6b46a','#0f4d31','#c76b0a','#9ad3b5'];
+const donut=it=>{const t=sum(it.map(i=>i[1]))||1;let a=0;const g=it.map((x,i)=>{const s=a;a+=x[1]/t*100;return `${PAL[i%7]} ${s}% ${a}%`}).join(',');return `<div class="dn"><div class="ring" style="background:conic-gradient(${g})"><span>৳${bn(t)}</span></div><ul>${it.map((x,i)=>`<li><i style="background:${PAL[i%7]}"></i>${esc(x[0])}<b>${bn(x[1])}</b></li>`).join('')}</ul></div>`};
+const lab=[...MO.slice(5).map(x=>x+' ২৫'),...MO.map(x=>x+' ২৬')],series=m=>[...m.m25,...m.m];
+function authUI(mode='in'){const up=mode=='up';$('#out').hidden=true;
+ app$(`<div class="card auth"><img class="lg" src="logo.png" alt=""><h2>${up?'নতুন অ্যাকাউন্ট':'স্বাগতম'}</h2><p class="mu">${up?'তালিকায় থাকা আপনার মোবাইল নম্বর দিন। অ্যাডমিন অনুমোদন দিলে তথ্য দেখতে পারবেন।':'মোবাইল নম্বর ও পাসওয়ার্ড দিয়ে লগইন করুন।'}</p><label>মোবাইল নম্বর</label><input id="ph" inputmode="numeric" autocomplete="username" placeholder="০১XXXXXXXXX"><label>পাসওয়ার্ড</label><div class="pw"><input id="pw" type="password" autocomplete="${up?'new-password':'current-password'}" placeholder="কমপক্ষে ৬ অক্ষর"><button type="button" class="eye" id="ey" aria-label="পাসওয়ার্ড দেখুন">${EYE}</button></div><button class="full" id="go">${up?'অ্যাকাউন্ট খুলুন':'লগইন'}</button><p class="sw">${up?'আগে থেকে অ্যাকাউন্ট আছে?':'অ্যাকাউন্ট নেই?'} <a href="#" id="sw">${up?'লগইন করুন':'নতুন অ্যাকাউন্ট খুলুন'}</a></p></div>`);
+ $('#ey').onclick=()=>{const p=$('#pw'),h=p.type=='password';p.type=h?'text':'password';$('#ey').innerHTML=h?EYE0:EYE;$('#ey').classList.toggle('on',h);$('#ey').setAttribute('aria-label',h?'পাসওয়ার্ড লুকান':'পাসওয়ার্ড দেখুন')};
+ $('#sw').onclick=e=>{e.preventDefault();authUI(up?'in':'up')};$('#pw').onkeydown=e=>{if(e.key=='Enter')$('#go').click()};
+ $('#go').onclick=async()=>{const p=norm($('#ph').value),w=$('#pw').value,b=$('#go');if(!/^01\d{9}$/.test(p))return toast('সঠিক মোবাইল নম্বর দিন','er');if(w.length<6)return toast('পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন','er');b.disabled=true;
+  try{if(!up)await A.signInWithEmailAndPassword(au,mail(p),w);else{signing=true;const c=await A.createUserWithEmailAndPassword(au,mail(p),w);await setDoc(doc(db,'users',c.user.uid),{phone:p,status:'pending',role:'member',createdAt:serverTimestamp()});signing=false;route(c.user)}}
+  catch(e){signing=false;b.disabled=false;const c=e.code;toast(c=='auth/email-already-in-use'?'এই নম্বরে অ্যাকাউন্ট আছে, লগইন করুন':['auth/invalid-credential','auth/wrong-password','auth/user-not-found'].includes(c)?'নম্বর বা পাসওয়ার্ড ভুল':c=='auth/too-many-requests'?'অনেকবার চেষ্টা হয়েছে, একটু পরে আবার করুন':'ত্রুটি: '+(c||e.message),'er')}}}
+async function route(u){if(!u)return authUI();$('#out').hidden=false;app$('<div class="ld">লোড হচ্ছে…</div>');
+ const d=await getDoc(doc(db,'users',u.uid));if(!d.exists())return app$('<div class="card big"><div class="e">⚠️</div><h3>অ্যাকাউন্টের তথ্য পাওয়া যায়নি</h3><p class="mu">লগআউট করে আবার চেষ্টা করুন বা অ্যাডমিনের সাথে যোগাযোগ করুন।</p></div>');
+ me={uid:u.uid,...d.data()};
+ if(me.status=='pending')return app$('<div class="card big"><div class="e">⏳</div><h3>অনুমোদনের অপেক্ষায়</h3><p class="mu">অ্যাডমিন আপনার অ্যাকাউন্ট অনুমোদন করলে তথ্য দেখতে পারবেন। পরে আবার লগইন করুন।</p></div>');
+ if(me.status!='approved')return app$('<div class="card big"><div class="e">🚫</div><h3>অনুরোধ গ্রহণ করা হয়নি</h3><p class="mu">অ্যাডমিনের সাথে যোগাযোগ করুন।</p></div>');
  me.role=='admin'?adminUI():memberUI()}
-$('#out').onclick=()=>{A.signOut(au);$('#out').hidden=true};
+$('#out').onclick=()=>{A.signOut(au)};
+{const u=new URL('logo.png',location.href).href,mf={name:'নতুন দিগন্ত',short_name:'নতুন দিগন্ত',lang:'bn',start_url:location.href.split('#')[0],scope:location.href.replace(/[^/]*$/,''),display:'standalone',background_color:'#f1f7f3',theme_color:'#1f7a4d',icons:[{src:u,sizes:'192x192',type:'image/png'},{src:u,sizes:'512x512',type:'image/png'}]},l=document.createElement('link');l.rel='manifest';l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/manifest+json'}));document.head.append(l)}
+let dp=null;const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),sa=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('#ins').hidden=false});addEventListener('appinstalled',()=>{$('#ins').hidden=true});if(ios&&!sa)$('#ins').hidden=false;
+$('#ins').onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null;$('#ins').hidden=true}else await ask('আইফোনে Safari-র শেয়ার বাটন চেপে "Add to Home Screen" বেছে নিন। অ্যান্ড্রয়েডে ব্রাউজারের মেনু থেকে "Add to Home screen" দিন।','বুঝেছি')};
 A.onAuthStateChanged(au,u=>{if(!signing)route(u)});
+const NT=t=>t.notice?.t?`<div class="card nt"><h3>📢 নোটিশ</h3><p>${esc(t.notice.t).replace(/\n/g,'<br>')}</p><small class="mu">${new Date(t.notice.ts).toLocaleDateString('bn-BD')}</small></div>`:'';
+const RK=(x,t)=>{const a=t.tots;if(t.rank===false||!Array.isArray(a)||!a.length)return'';const mt=tot(x),pos=a.filter(v=>v>mt).length+1,mx=Math.max(1,...a),avg=Math.round(sum(a)/a.length),df=mt-avg;return `<div class="card"><h3>অন্যদের তুলনায় আপনি</h3><div class="rk"><b>${bn(pos)}</b><span>তম অবস্থান<br><small class="mu">${bn(a.length)} জন সদস্যের মধ্যে</small></span></div><div class="prog2"><i style="width:${Math.min(100,mt/mx*100)}%"></i></div><p class="mu" style="margin:8px 0 0">সদস্যদের গড় সঞ্চয় ৳${bn(avg)}। আপনার সঞ্চয় গড়ের চেয়ে ৳${bn(Math.abs(df))} ${df>=0?'বেশি':'কম'}।</p></div>`};
 async function memberUI(){const [m,s]=await Promise.all([getDoc(doc(db,'members',me.memberId||'x')),getDoc(doc(db,'summary','main'))]);
- if(!m.exists())return app$('<div class="card">আপনার তথ্য এখনো যোগ হয়নি।</div>');const x=m.data(),t=s.data()||{};
- app$(`<h2>${x.name}</h2>${stats([['৳ '+bn(tot(x)),'আপনার মোট সঞ্চয়'],[x.bg||'–','রক্তের গ্রুপ'],['৳ '+bn(x.fee),'ভর্তি ফি'],['৳ '+bn(x.refund),'ফেরত নিয়েছেন']])}<div class="card"><h3>আপনার মাসিক জমা</h3>${bars(series(x),lab)}</div><div class="card"><h3>প্রতিষ্ঠানের সারাংশ</h3>${stats([[bn(t.count)+' জন','মোট সদস্য'],['৳ '+bn(t.cash),'ক্যাশ ব্যালেন্স']])}</div><p class="mu">তথ্য শুধু অ্যাডমিন পরিবর্তন করতে পারেন।</p>`)}
-async function load(){const g=async(n,...q)=>(await getDocs(query(collection(db,n),...q))).docs.map(d=>({id:d.id,...d.data()}));
- [S.members,S.cash,S.users,S.logs]=await Promise.all([g('members'),g('cash',orderBy('i')),g('users'),g('logs',orderBy('ts','desc'),limit(30))]);S.members.sort((a,b)=>a.sl-b.sl)}
-const log=async t=>{await addDoc(collection(db,'logs'),{by:me.phone,t,ts:serverTimestamp()})};
-async function summ(){const c=S.cash.at(-1);await setDoc(doc(db,'summary','main'),{count:S.members.length,total:sum(S.members.map(tot)),cash:c?c.tot:0,fees:sum(S.members.map(m=>m.fee))})}
-async function adminUI(){await load();const T=['অনুমোদন','সদস্য','ক্যাশ খাতা','চার্ট','লগ','ডাটা'];
- app$(`<div class="tabs">${T.map((t,i)=>`<button class="${i==tab?'on':''}" data-i="${i}">${t}</button>`).join('')}</div><div id="v"></div>`);
- document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=+b.dataset.i;adminUI()});
- const v=$('#v'),mem=p=>S.members.find(m=>m.phone&&m.phone==p);
- if(tab==0){v.innerHTML=`<div class="card w"><table><thead><tr><th>নম্বর</th><th>তালিকার সদস্য</th><th>অবস্থা</th><th></th></tr></thead><tbody>${S.users.map(u=>{const m=mem(u.phone);return `<tr><td>${u.phone}</td><td>${m?m.name:'<span class=err>মেলেনি</span>'}</td><td>${u.status} ${u.role=='admin'?'(অ্যাডমিন)':''}</td><td>${u.status!='approved'&&m?`<button class="s" data-a="${u.id}|${m.id}">অনুমোদন</button> `:''}${u.status=='pending'?`<button class="s o" data-r="${u.id}">বাতিল</button>`:''}${u.status=='approved'&&u.role!='admin'?`<button class="s" data-m="${u.id}">অ্যাডমিন করুন</button>`:''}</td></tr>`}).join('')}</tbody></table></div>`;
-  v.onclick=async e=>{const d=e.target.dataset;if(d.a){const [id,mid]=d.a.split('|');await updateDoc(doc(db,'users',id),{status:'approved',memberId:mid});await log('অনুমোদন '+mid)}
-   else if(d.r)await updateDoc(doc(db,'users',d.r),{status:'rejected'});else if(d.m&&confirm('নতুন অ্যাডমিন করবেন?')){await updateDoc(doc(db,'users',d.m),{role:'admin'});await log('অ্যাডমিন যোগ')}else return;adminUI()}}
- if(tab==1){const K=['b25',...Array(12).keys(),'refund','fee'];
-  v.innerHTML=`<div class="card w"><table><thead><tr><th>#</th><th>নাম</th><th>রক্ত</th><th>মোবাইল</th><th>২০২৫</th>${MO.map(x=>`<th>${x}</th>`).join('')}<th>ফেরত</th><th>ভর্তি</th><th>মোট</th><th></th></tr></thead><tbody>${S.members.map(m=>`<tr data-id="${m.id}"><td>${bn(m.sl)}</td><td><input class="t" data-k="name" value="${m.name}"></td><td><input data-k="bg" value="${m.bg||''}" style="width:50px"></td><td><input class="t" data-k="phone" value="${m.phone||''}"></td>${K.map(k=>`<td><input type="number" min="0" data-k="${k}" value="${typeof k=='number'?m.m[k]:m[k]}"></td>`).join('')}<td class="tt">${bn(tot(m))}</td><td><button class="s">সংরক্ষণ</button></td></tr>`).join('')}</tbody></table></div><button class="o" id="nm">+ নতুন সদস্য</button>`;
-  v.oninput=e=>{const tr=e.target.closest('tr'),m=S.members.find(x=>x.id==tr.dataset.id),k=e.target.dataset.k,val=e.target.value;if(['name','bg','phone'].includes(k))m[k]=k=='phone'?val.replace(/\D/g,''):val;else if(/^\d+$/.test(k))m.m[+k]=+val||0;else m[k]=+val||0;tr.querySelector('.tt').textContent=bn(tot(m))};
-  v.onclick=async e=>{if(e.target.id=='nm'){const sl=Math.max(0,...S.members.map(m=>m.sl))+1,m={id:''+sl,sl,name:'নতুন সদস্য',bg:'',phone:'',b25:0,m25:Array(7).fill(0),m:Array(12).fill(0),refund:0,fee:20};m.total=0;await setDoc(doc(db,'members',m.id),m);await summ();return adminUI()}
-   const tr=e.target.closest('tr');if(e.target.tagName!='BUTTON'||!tr)return;const m=S.members.find(x=>x.id==tr.dataset.id);m.total=tot(m);await setDoc(doc(db,'members',m.id),m);await log('সদস্য সংরক্ষণ: '+m.name+' মোট '+m.total);await summ();e.target.textContent='✓ হয়েছে'}}
- if(tab==2){const last=S.cash.at(-1);v.innerHTML=`<div class="card"><b>নতুন এন্ট্রি</b><br><input id="cd" type="date"> <input id="cr" type="number" placeholder="জমা"> <input id="cp" type="number" placeholder="খরচ"> <button id="ca">যোগ করুন</button></div><div class="card w"><table><thead><tr><th>তারিখ</th><th>জমা</th><th>খরচ</th><th>নিট</th><th>মোট ক্যাশ</th></tr></thead><tbody>${S.cash.map(c=>`<tr><td>${c.d}</td><td>${bn(c.rec)}</td><td>${bn(c.pay)}</td><td>${bn(c.rec-c.pay)}</td><td><b>${bn(c.tot)}</b></td></tr>`).join('')}</tbody></table></div>`;
-  $('#ca').onclick=async()=>{const d=$('#cd').value,r=+$('#cr').value||0,p=+$('#cp').value||0;if(!d)return alert('তারিখ দিন');const i=(last?last.i:0)+1;
-   await setDoc(doc(db,'cash',String(i).padStart(4,'0')),{i,d:d.split('-').reverse().join('-'),rec:r,pay:p,tot:(last?last.tot:0)+r-p});await log('ক্যাশ এন্ট্রি '+d);await load();await summ();adminUI()}}
- if(tab==3){const vs=lab.map((_,i)=>sum(S.members.map(m=>series(m)[i])));v.innerHTML=`${stats([[bn(S.members.length)+' জন','সদস্য'],['৳ '+bn(sum(S.members.map(tot))),'মোট সঞ্চয়'],['৳ '+bn(S.cash.at(-1)?.tot),'ক্যাশ ব্যালেন্স']])}<div class="card"><h3>মাসিক মোট জমা</h3>${bars(vs,lab)}</div><div class="card"><h3>সদস্যভিত্তিক মোট সঞ্চয়</h3>${bars(S.members.map(tot),S.members.map(m=>m.name.split(' ')[0]))}</div>`}
- if(tab==4)v.innerHTML=`<div class="card w"><table><tbody>${S.logs.map(l=>`<tr><td>${l.ts?l.ts.toDate().toLocaleString('bn-BD'):''}</td><td>${l.by}</td><td style="text-align:left">${l.t}</td></tr>`).join('')}</tbody></table></div>`;
- if(tab==5){v.innerHTML=`<div class="card"><h3>প্রথম ডাটা আপলোড</h3><p>কম্পিউটারে রাখা <b>seed.json</b> ফাইলটি দিন (এটি GitHub-এ তুলবেন না)।</p><input type="file" id="sf" accept=".json"></div>`;
-  $('#sf').onchange=async e=>{const j=JSON.parse(await e.target.files[0].text());if(!confirm(j.members.length+' জন সদস্যের তথ্য আপলোড হবে। চালিয়ে যাবেন?'))return;const b=writeBatch(db);j.members.forEach(m=>b.set(doc(db,'members',m.id),m));j.cash.forEach((c,k)=>b.set(doc(db,'cash',String(k+1).padStart(4,'0')),{i:k+1,...c}));await b.commit();await load();await summ();await log('seed আপলোড');alert('হয়েছে');tab=1;adminUI()}}}
+ if(!m.exists())return app$('<div class="card big"><div class="e">📭</div><h3>আপনার তথ্য এখনো যোগ হয়নি</h3></div>');const x=m.data(),t=s.data()||{},dm=MO.filter((_,i)=>!x.m[i]&&i<=lim()).length;
+ app$(`<div class="hero"><h2>${esc(x.name)}</h2><small>আপনার মোট সঞ্চয়</small><b>৳ ${bn(tot(x))}</b>${x.bg?`<span class="ch">🩸 ${esc(x.bg)}</span>`:''}<span class="ch">ভর্তি ফি ৳${bn(x.fee)}</span>${x.refund?`<span class="ch">ফেরত ৳${bn(x.refund)}</span>`:''}</div>
+ ${NT(t)}${RK(x,t)}<div class="card"><h3>আপনার মাসিক জমা</h3>${bars(series(x),lab)}</div>
+ <div class="card"><h3>২০২৬ সালের জমা</h3><div class="mg">${MO.map((n,i)=>{const d=!x.m[i]&&i<=lim();return `<div class="${d?'due':''}">${n}<b>${x.m[i]?'৳'+bn(x.m[i]):d?'বাকি':'–'}</b></div>`}).join('')}</div>${dm?`<p class="err" style="margin:10px 0 0">${bn(dm)} মাসের জমা বাকি আছে</p>`:''}</div>
+ <div class="card"><h3>আমার তথ্য</h3><dl class="pf"><dt>নাম</dt><dd>${esc(x.name)}</dd><dt>ক্রম নং</dt><dd>${bn(x.sl)}</dd><dt>মোবাইল</dt><dd>${esc(x.phone||me.phone||'–')}</dd><dt>রক্তের গ্রুপ</dt><dd>${esc(x.bg||'–')}</dd><dt>ভর্তি ফি</dt><dd>৳${bn(x.fee)}</dd><dt>লগইন নম্বর</dt><dd>${esc(me.phone||'–')}</dd></dl></div>${stats([['👥',bn(t.count)+' জন','মোট সদস্য'],['🏦','৳ '+bn(t.cash),'প্রতিষ্ঠানের ক্যাশ ব্যালেন্স']])}<p class="mu" style="text-align:center">তথ্য শুধু অ্যাডমিন পরিবর্তন করতে পারেন।</p>`)}
+async function load(){app$('<div class="ld">তথ্য লোড হচ্ছে…</div>');const g=async(n,...q)=>(await getDocs(query(collection(db,n),...q))).docs.map(d=>({id:d.id,...d.data()}));
+ let sm;[S.members,S.cash,S.users,S.logs,sm]=await Promise.all([g('members'),g('cash',orderBy('i')),g('users'),g('logs',orderBy('ts','desc'),limit(30)),getDoc(doc(db,'summary','main'))]);S.sum=sm.data()||{};S.members.sort((a,b)=>a.sl-b.sl)}
+const log=t=>addDoc(collection(db,'logs'),{by:me.phone,t,ts:serverTimestamp()});
+async function summ(){const c=S.cash.at(-1);await setDoc(doc(db,'summary','main'),{count:act().length,total:sum(S.members.map(tot)),cash:c?c.tot:0,fees:sum(S.members.map(m=>m.fee)),tots:act().map(tot).sort((a,b)=>b-a)},{merge:true})}
+function csv(){const h=['ক্রম','নাম','রক্ত','মোবাইল','২০২৫ পর্যন্ত',...MO,'ফেরত','ভর্তি ফি','মোট'],r=S.members.map(m=>[m.sl,m.name,m.bg,m.phone,m.b25,...m.m,m.refund,m.fee,tot(m)]);
+ const t='\ufeff'+[h,...r].map(a=>a.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv'}));a.download='notun-digonto.csv';a.click();toast('এক্সেলে খোলার ফাইল নামানো হয়েছে')}
+async function editCash(c){const iso=/^\d\d-\d\d-\d{4}$/.test(c.d),o=document.createElement('div');o.className='ov';
+ o.innerHTML=`<div class="md ef" role="dialog" aria-modal="true"><h3>এন্ট্রি এডিট</h3><label>তারিখ</label><input id="ed" type="${iso?'date':'text'}" value="${esc(iso?c.d.split('-').reverse().join('-'):c.d)}"><label>জমা (টাকা)</label><input id="er" type="number" min="0" value="${c.rec}"><label>খরচ (টাকা)</label><input id="ep" type="number" min="0" value="${c.pay}"><div class="mb"><button class="g2" id="n">বাতিল</button><button id="y">সংরক্ষণ</button></div></div>`;document.body.append(o);
+ const k=e=>{if(e.key=='Escape')close()},close=()=>{document.removeEventListener('keydown',k);o.remove()};document.addEventListener('keydown',k);o.querySelector('#n').onclick=close;o.onclick=e=>{if(e.target==o)close()};
+ o.querySelector('#y').onclick=async()=>{const dv=o.querySelector('#ed').value.trim(),r=+o.querySelector('#er').value||0,p=+o.querySelector('#ep').value||0;if(!dv)return toast('তারিখ দিন','er');if(!r&&!p)return toast('জমা বা খরচের অঙ্ক দিন','er');
+  const i=S.cash.findIndex(x=>x.id==c.id);let run=i>0?S.cash[i-1].tot:c.tot-(c.rec-c.pay);c.d=iso?dv.split('-').reverse().join('-'):dv;c.rec=r;c.pay=p;
+  const up=S.cash.slice(i);up.forEach(x=>{run+=x.rec-x.pay;x.tot=run});
+  for(let j=0;j<up.length;j+=400){const b=writeBatch(db);up.slice(j,j+400).forEach(x=>b.set(doc(db,'cash',x.id),{i:x.i,d:x.d,rec:x.rec,pay:x.pay,tot:x.tot}));await b.commit()}
+  close();await log('ক্যাশ এন্ট্রি এডিট: '+c.d);await summ();toast('এন্ট্রি আপডেট হয়েছে');render()}}
+async function adminUI(r=true){if(r)await load();render()}
+function render(){const pend=S.users.filter(u=>u.status=='pending').length,T=[['🏠','ড্যাশবোর্ড',0],['✅','অনুমোদন',1],['👥','সদস্য',2],['⏰','বকেয়া',6],['💰','ক্যাশ খাতা',3],['🩸','রক্ত',8],['📢','নোটিশ',7],['🧾','লগ',4],['⬆️','ডাটা',5]];
+ app$(`<div class="tabs">${T.map(t=>`<button class="${t[2]==tab?'on':''}" data-i="${t[2]}">${t[0]} ${t[1]}${t[2]==1&&pend?`<span class="bd">${bn(pend)}</span>`:''}</button>`).join('')}</div><div id="v"></div>`);
+ document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=+b.dataset.i;render()});
+ const v=$('#v'),mem=p=>S.members.find(m=>m.phone&&m.phone==p),lbl={pending:['অপেক্ষায়','p'],approved:['অনুমোদিত',''],rejected:['বাতিল','r']};
+ if(tab==0){v.onclick=e=>{if(e.target.closest('[data-go]')){tab=1;render()}};const cur=new Date().getMonth(),cs=sum(S.members.map(m=>m.m[cur]||0)),srt=[...S.members].sort((a,b)=>tot(b)-tot(a)),top=srt.slice(0,6).map(m=>[m.name.split(' ')[0],tot(m)]),rest=sum(srt.slice(6).map(tot));if(rest)top.push(['অন্যান্য',rest]);
+  const AM=act(),paid=AM.filter(m=>m.m[cur]>0).length,all=AM.length||1;
+  v.innerHTML=`<div class="hero"><h2>স্বাগতম, অ্যাডমিন</h2><small>প্রতিষ্ঠানের মোট সঞ্চয়</small><b>৳ ${bn(sum(S.members.map(tot)))}</b><span class="ch">${MO[cur]} মাসে ${bn(paid)}/${bn(AM.length)} জন জমা দিয়েছেন</span><div class="prog"><i style="width:${paid/all*100}%"></i></div></div>${pend?`<div class="alert" data-go="1">⏳ ${bn(pend)} জন অনুমোদনের অপেক্ষায় আছে<span>দেখুন ›</span></div>`:''}`+stats([['👥',bn(AM.length)+' জন','মোট সদস্য'],['💰','৳ '+bn(sum(S.members.map(tot))),'মোট সঞ্চয়'],['🏦','৳ '+bn(S.cash.at(-1)?.tot),'ক্যাশ ব্যালেন্স'],['📅','৳ '+bn(cs),MO[cur]+' মাসের জমা'],['⏳',bn(pend)+' জন','অনুমোদনের অপেক্ষায়']])+
+  `<div class="card"><h3>মাসিক মোট জমা</h3>${bars(lab.map((_,i)=>sum(S.members.map(m=>series(m)[i]))),lab)}</div><div class="g2c"><div class="card"><h3>সঞ্চয়ের ভাগ</h3>${donut(top)}</div><div class="card"><h3>সদস্যভিত্তিক সঞ্চয়</h3>${bars(S.members.map(tot),S.members.map(m=>m.name.split(' ')[0]))}</div></div>
+  <div class="g2c"><div class="card w2"><h3>সাম্প্রতিক ক্যাশ এন্ট্রি</h3><table><tbody>${S.cash.slice(-5).reverse().map(c=>`<tr><td style="text-align:left">${c.d}</td><td>জমা ${bn(c.rec)}</td><td>খরচ ${bn(c.pay)}</td><td><b>${bn(c.tot)}</b></td></tr>`).join('')}</tbody></table></div><div class="card w2"><h3>সাম্প্রতিক কাজ</h3><table><tbody>${S.logs.slice(0,5).map(l=>`<tr><td style="text-align:left">${esc(l.t)}</td><td class="mu">${l.ts?l.ts.toDate().toLocaleDateString('bn-BD'):''}</td></tr>`).join('')||'<tr><td class="mu">এখনো কিছু নেই</td></tr>'}</tbody></table></div></div>`}
+ if(tab==1){v.innerHTML=`<div class="card w2"><table><thead><tr><th>মোবাইল</th><th>তালিকার সদস্য</th><th>অবস্থা</th><th></th></tr></thead><tbody>${S.users.map(u=>{const m=mem(u.phone),l=lbl[u.status]||['',''];return `<tr><td>${u.phone}</td><td>${m?esc(m.name):'<span class="err">তালিকায় মেলেনি</span>'}</td><td><span class="chip ${l[1]}">${l[0]}</span> ${u.role=='admin'?'<span class="chip">অ্যাডমিন</span>':''}</td><td>${u.status!='approved'&&m?`<button class="s" data-a="${u.id}|${m.id}">অনুমোদন</button> `:''}${u.status=='pending'?`<button class="s o" data-r="${u.id}">বাতিল</button>`:''}${u.status=='approved'&&u.role!='admin'?`<button class="s g2" data-m="${u.id}">অ্যাডমিন করুন</button>`:''}</td></tr>`}).join('')}</tbody></table></div><p class="mu">নম্বর তালিকায় না মিললে সদস্য ট্যাবে নম্বর বসিয়ে সংরক্ষণ করুন।</p>`;
+  v.onclick=async e=>{const d=e.target.dataset;if(d.a){const [id,mid]=d.a.split('|');await updateDoc(doc(db,'users',id),{status:'approved',memberId:mid});await log('অনুমোদন: সদস্য '+mid);toast('অনুমোদন দেওয়া হয়েছে')}
+   else if(d.r){if(!await ask('এই অনুরোধ বাতিল করবেন?'))return;await updateDoc(doc(db,'users',d.r),{status:'rejected'});toast('বাতিল করা হয়েছে')}
+   else if(d.m){if(!await ask('এই সদস্যকে অ্যাডমিন করবেন? সে সব তথ্য এডিট করতে পারবে।','অ্যাডমিন করুন'))return;await updateDoc(doc(db,'users',d.m),{role:'admin'});await log('নতুন অ্যাডমিন যোগ');toast('নতুন অ্যাডমিন যোগ হয়েছে')}else return;adminUI()}}
+ if(tab==2){const K=['b25',...Array(12).keys(),'refund','fee'],cur=new Date().getMonth(),BG=[...new Set(S.members.map(m=>(m.bg||'').trim()).filter(Boolean))].sort(),
+   rows=()=>{const q=MF.q.trim().toLowerCase(),l=S.members.filter(m=>(!q||(m.name+m.phone).toLowerCase().includes(q))&&(!MF.bg||(m.bg||'').trim()==MF.bg)&&(MF.f=='all'||(MF.f=='on'&&m.active!==false)||(MF.f=='off'&&m.active===false)||(MF.f=='due'&&m.active!==false&&!m.m[cur])));
+    l.sort({sl:(x,y)=>x.sl-y.sl,name:(x,y)=>String(x.name).localeCompare(String(y.name),'bn'),hi:(x,y)=>tot(y)-tot(x),lo:(x,y)=>tot(x)-tot(y)}[MF.sort]);
+    return l.map(m=>`<tr data-id="${m.id}" class="${m.active===false?'off':''}"><td>${bn(m.sl)}</td><td><input class="t" data-k="name" value="${esc(m.name)}"></td><td><input data-k="bg" value="${esc(m.bg)}" style="width:54px"></td><td><input class="t" data-k="phone" value="${esc(m.phone)}"></td>${K.map(k=>`<td><input type="number" min="0" data-k="${k}" value="${typeof k=='number'?m.m[k]:m[k]}"></td>`).join('')}<td class="tt"><b>${bn(tot(m))}</b></td><td><button class="s">সংরক্ষণ</button> <button class="s g2" data-act="off">${m.active===false?'সক্রিয় করুন':'নিষ্ক্রিয়'}</button> <button class="s o" data-act="del">মুছুন</button></td></tr>`).join('')||'<tr><td class="mu" style="text-align:left">কাউকে পাওয়া যায়নি</td></tr>'},
+   opt=(a,c)=>a.map(x=>`<option value="${x[0]}" ${x[0]==c?'selected':''}>${x[1]}</option>`).join('');
+  v.innerHTML=`<div class="bar"><input type="search" id="sq" placeholder="🔍 নাম বা নম্বর খুঁজুন" value="${esc(MF.q)}"></div><div class="bar"><select id="so" aria-label="সাজান">${opt([['sl','ক্রম অনুযায়ী'],['name','নাম অনুযায়ী'],['hi','বেশি সঞ্চয় আগে'],['lo','কম সঞ্চয় আগে']],MF.sort)}</select><select id="sf" aria-label="ফিল্টার">${opt([['all','সব সদস্য'],['on','সক্রিয়'],['off','নিষ্ক্রিয়'],['due','এই মাসে বকেয়া']],MF.f)}</select><select id="sb" aria-label="রক্তের গ্রুপ"><option value="">সব রক্তের গ্রুপ</option>${BG.map(g=>`<option ${g==MF.bg?'selected':''}>${esc(g)}</option>`).join('')}</select></div><div class="bar"><button id="nm" class="o">+ নতুন সদস্য</button><button id="dl" class="g2">⬇ এক্সেল ফাইল</button></div><div class="card w2"><table><thead><tr><th>#</th><th>নাম</th><th>রক্ত</th><th>মোবাইল</th><th>২০২৫</th>${MO.map(x=>`<th>${x}</th>`).join('')}<th>ফেরত</th><th>ভর্তি</th><th>মোট</th><th></th></tr></thead><tbody>${rows()}</tbody></table></div>`;
+  const tb=()=>{v.querySelector('tbody').innerHTML=rows()};$('#dl').onclick=csv;
+  v.onchange=e=>{const i=e.target.id;if(i=='so')MF.sort=e.target.value;else if(i=='sf')MF.f=e.target.value;else if(i=='sb')MF.bg=e.target.value;else return;tb()};
+  v.oninput=e=>{if(e.target.id=='sq'){MF.q=e.target.value;return tb()}const tr=e.target.closest('tr');if(!tr||!tr.dataset.id)return;const m=S.members.find(x=>x.id==tr.dataset.id),k=e.target.dataset.k,val=e.target.value;if(['name','bg','phone'].includes(k))m[k]=k=='phone'?norm(val):val;else if(/^\d+$/.test(k))m.m[+k]=+val||0;else m[k]=+val||0;tr.querySelector('.tt').innerHTML='<b>'+bn(tot(m))+'</b>'};
+  v.onclick=async e=>{if(e.target.id=='nm'){const sl=Math.max(0,...S.members.map(m=>m.sl))+1,m={id:''+sl,sl,name:'নতুন সদস্য',bg:'',phone:'',b25:0,m25:Array(7).fill(0),m:Array(12).fill(0),refund:0,fee:20,total:0,active:true};await setDoc(doc(db,'members',m.id),m);await summ();toast('নতুন সদস্য যোগ হয়েছে');return adminUI()}
+   const tr=e.target.closest('tr');if(e.target.tagName!='BUTTON'||!tr||!tr.dataset.id)return;const m=S.members.find(x=>x.id==tr.dataset.id),ac=e.target.dataset.act;
+   if(ac=='del'){if(!await ask(esc(m.name)+' কে সদস্য তালিকা থেকে মুছে ফেলবেন? এটা ফেরানো যাবে না। চাইলে মুছে না ফেলে "নিষ্ক্রিয়" করে রাখতে পারেন।','মুছুন'))return;await deleteDoc(doc(db,'members',m.id));await log('সদস্য মোছা: '+m.name);await load();await summ();toast('সদস্য মুছে ফেলা হয়েছে');return render()}
+   if(ac=='off'){m.active=m.active===false;m.total=tot(m);await setDoc(doc(db,'members',m.id),m);await log((m.active?'সক্রিয়: ':'নিষ্ক্রিয়: ')+m.name);await summ();toast(m.active?'সদস্য সক্রিয় হয়েছে':'সদস্য নিষ্ক্রিয় করা হয়েছে');return render()}
+   m.total=tot(m);await setDoc(doc(db,'members',m.id),m);await log('সদস্য সংরক্ষণ: '+m.name+' (মোট '+m.total+')');await summ();toast('সংরক্ষিত: '+m.name)}}
+ if(tab==6){if(!AMT){const c={};S.members.forEach(m=>m.m.forEach(x=>{if(x>0)c[x]=(c[x]||0)+1}));AMT=+Object.keys(c).sort((a,b)=>c[b]-c[a])[0]||500}
+  const due=act().filter(m=>!m.m[DM]);
+  v.innerHTML=`<div class="card"><h3>${MO[DM]} মাসের বকেয়া</h3><div class="bar"><select id="dm" aria-label="মাস">${MO.map((n,i)=>`<option value="${i}" ${i==DM?'selected':''}>${n}</option>`).join('')}</select><input id="am" type="number" min="1" value="${AMT}" style="max-width:120px" aria-label="জমার পরিমাণ (টাকা)"></div><div class="bar"><button id="all" class="o">সবার জমা বসান</button><button id="cp" class="g2">তালিকা কপি</button></div><p class="mu" style="margin:0 0 6px">${bn(due.length)} জন বাকি। "জমা বসান" চাপলে উপরের অঙ্ক (৳${bn(AMT)}) ওই সদস্যের ${MO[DM]} মাসে বসবে।</p>${due.map(m=>`<div class="dr"><span><b>${esc(m.name)}</b><small class="mu">${esc(m.phone||'নম্বর নেই')}</small></span><span class="ac">${m.phone?`<a class="lk" href="tel:${esc(m.phone)}">📞 কল</a><a class="lk" href="sms:${esc(m.phone)}?body=${encodeURIComponent('প্রিয় '+m.name+', নতুন দিগন্তের '+MO[DM]+' মাসের জমা বাকি আছে। জমা দিলে জানাবেন।')}">💬 এসএমএস</a>`:''}<button class="s" data-pay="${m.id}">জমা বসান</button></span></div>`).join('')||'<div class="big"><div class="e">🎉</div><p>এই মাসে সবাই জমা দিয়েছেন</p></div>'}</div>`;
+  v.onchange=e=>{if(e.target.id=='dm'){DM=+e.target.value;render()}else if(e.target.id=='am')AMT=Math.max(1,+e.target.value||AMT)};
+  v.onclick=async e=>{const d=e.target.dataset,a=Math.max(1,+$('#am').value||AMT);AMT=a;
+   if(d.pay){const m=S.members.find(x=>x.id==d.pay);m.m[DM]=a;m.total=tot(m);await setDoc(doc(db,'members',m.id),m);await log(MO[DM]+' জমা: '+m.name+' ৳'+a);await summ();toast(m.name+': ৳'+bn(a)+' জমা হয়েছে');render()}
+   else if(e.target.id=='all'){if(!due.length)return;if(!await ask(bn(due.length)+' জনের '+MO[DM]+' মাসে ৳'+bn(a)+' করে জমা বসাবেন?','জমা বসান'))return;const b=writeBatch(db);due.forEach(m=>{m.m[DM]=a;m.total=tot(m);b.set(doc(db,'members',m.id),m)});await b.commit();await log(MO[DM]+' মাসের জমা '+due.length+' জনের জন্য ৳'+a);await summ();toast('সবার জমা বসানো হয়েছে');render()}
+   else if(e.target.id=='cp'){const t=MO[DM]+' মাসের বকেয়া:\n'+due.map((m,i)=>bn(i+1)+'. '+m.name+' '+(m.phone||'')).join('\n');navigator.clipboard.writeText(t).then(()=>toast('তালিকা কপি হয়েছে'),()=>toast('কপি করা যায়নি','er'))}}}
+ if(tab==7){const n=S.sum?.notice;v.innerHTML=`<div class="card"><h3>নোটিশ বোর্ড</h3><p class="mu">এখানে লিখলে অনুমোদিত সব সদস্য লগইন করে নোটিশটি দেখবে।</p><textarea id="nt" rows="4" maxlength="500" placeholder="যেমন: এই মাসের সভা শুক্রবার বিকাল ৫টায়">${esc(n?.t||'')}</textarea><div class="bar" style="margin-top:10px"><button id="np">নোটিশ প্রকাশ করুন</button>${n?'<button id="nd" class="g2">নোটিশ সরান</button>':''}</div></div><div class="card"><h3>সদস্যরা কী দেখবে</h3><label class="tg"><input type="checkbox" id="rk" ${S.sum?.rank!==false?'checked':''}> সঞ্চয়ে নিজের অবস্থান দেখতে পারবে</label></div>`;
+  const W=o=>setDoc(doc(db,'summary','main'),o,{merge:true});
+  v.onclick=async e=>{if(e.target.id=='np'){const t=$('#nt').value.trim();if(!t)return toast('নোটিশ লিখুন','er');S.sum={...S.sum,notice:{t,ts:Date.now()}};await W({notice:S.sum.notice});await log('নোটিশ প্রকাশ');toast('নোটিশ প্রকাশ হয়েছে');render()}
+   else if(e.target.id=='nd'){if(!await ask('নোটিশটি সরিয়ে ফেলবেন?','সরান'))return;S.sum={...S.sum,notice:null};await W({notice:null});toast('নোটিশ সরানো হয়েছে');render()}};
+  v.onchange=async e=>{if(e.target.id=='rk'){S.sum={...S.sum,rank:e.target.checked};await W({rank:e.target.checked});toast(e.target.checked?'অবস্থান দেখানো হবে':'অবস্থান লুকানো হয়েছে')}}}
+ if(tab==8){const ALL=['A+','A-','B+','B-','AB+','AB-','O+','O-'],CP={'A+':['A+','A-','O+','O-'],'A-':['A-','O-'],'B+':['B+','B-','O+','O-'],'B-':['B-','O-'],'AB+':ALL,'AB-':['A-','B-','AB-','O-'],'O+':['O+','O-'],'O-':['O-']},
+   nb=b=>String(b||'').toUpperCase().replace(/[\s()]/g,'').replace(/POSITIVE|POS/,'+').replace(/NEGATIVE|NEG/,'-'),A=act().filter(m=>ALL.includes(nb(m.bg))),
+   dn=BGS?A.filter(m=>CP[BGS].includes(nb(m.bg))).sort((x,y)=>(nb(y.bg)==BGS)-(nb(x.bg)==BGS)):[];
+  v.innerHTML=`<div class="card"><h3>রক্তদাতা খুঁজুন</h3><p class="mu">রোগীর রক্তের গ্রুপ বেছে নিন। যারা ওই গ্রুপের রোগীকে রক্ত দিতে পারবেন তাদের তালিকা আসবে।</p><div class="bgp">${ALL.map(g=>`<button class="${g==BGS?'':'g2'}" data-g="${g}">${g}</button>`).join('')}</div></div>${BGS?`<div class="card"><h3>${BGS} গ্রুপের রোগীর জন্য ${bn(dn.length)} জন</h3>${dn.map(m=>`<div class="dr"><span><b>${esc(m.name)}</b> <span class="chip">${esc(m.bg)}</span>${nb(m.bg)==BGS?' <span class="chip p">একই গ্রুপ</span>':''}<small class="mu">${esc(m.phone||'নম্বর নেই')}</small></span><span class="ac">${m.phone?`<a class="lk" href="tel:${esc(m.phone)}">📞 কল</a>`:''}</span></div>`).join('')||'<p class="mu">এই গ্রুপের দাতা তালিকায় নেই।</p>'}</div>`:''}<div class="card"><h3>গ্রুপ অনুযায়ী সদস্য</h3><div class="mg">${ALL.map(g=>`<div>${g}<b>${bn(A.filter(m=>nb(m.bg)==g).length)} জন</b></div>`).join('')}</div><p class="mu" style="margin:10px 0 0">রক্তের গ্রুপ দেওয়া আছে ${bn(A.length)} জনের।</p></div>`;
+  v.onclick=e=>{const g=e.target.closest('[data-g]')?.dataset.g;if(g){BGS=BGS==g?'':g;render()}}}
+ if(tab==3){const last=S.cash.at(-1);v.innerHTML=`<div class="card"><h3>নতুন এন্ট্রি</h3><div class="bar"><input id="cd" type="date"><input id="cr" type="number" min="0" placeholder="জমা (টাকা)"><input id="cp" type="number" min="0" placeholder="খরচ (টাকা)"><button id="ca">যোগ করুন</button></div></div><div class="card w2"><table><thead><tr><th style="text-align:left">তারিখ</th><th>জমা</th><th>খরচ</th><th>নিট</th><th>মোট ক্যাশ</th><th></th></tr></thead><tbody>${S.cash.map(c=>`<tr><td style="text-align:left">${c.d}</td><td>${bn(c.rec)}</td><td>${bn(c.pay)}</td><td>${bn(c.rec-c.pay)}</td><td><b>${bn(c.tot)}</b></td><td><button class="s g2" data-ed="${c.id}">এডিট</button></td></tr>`).join('')}</tbody></table></div>${last?'<button class="g2 s" id="cx">⌫ শেষ এন্ট্রি মুছুন</button>':''}`;
+  $('#ca').onclick=async()=>{const d=$('#cd').value,r=+$('#cr').value||0,p=+$('#cp').value||0;if(!d)return toast('তারিখ দিন','er');if(!r&&!p)return toast('জমা বা খরচের অঙ্ক দিন','er');const i=(last?last.i:0)+1;
+   await setDoc(doc(db,'cash',String(i).padStart(4,'0')),{i,d:d.split('-').reverse().join('-'),rec:r,pay:p,tot:(last?last.tot:0)+r-p});await log('ক্যাশ এন্ট্রি '+d+' জমা '+r+' খরচ '+p);await load();await summ();toast('এন্ট্রি যোগ হয়েছে');render()};
+  v.onclick=e=>{const id=e.target.dataset.ed;if(id)editCash(S.cash.find(x=>x.id==id))};if(last)$('#cx').onclick=async()=>{if(!await ask('শেষ এন্ট্রি ('+last.d+') মুছে ফেলবেন?','মুছুন'))return;await deleteDoc(doc(db,'cash',last.id));await log('ক্যাশ এন্ট্রি মোছা: '+last.d);await load();await summ();toast('মুছে ফেলা হয়েছে');render()}}
+ if(tab==4)v.innerHTML=`<div class="card w2"><h3>কে কখন কী বদলেছে</h3><table><tbody>${S.logs.map(l=>`<tr><td style="text-align:left" class="mu">${l.ts?l.ts.toDate().toLocaleString('bn-BD'):''}</td><td>${esc(l.by)}</td><td style="text-align:left">${esc(l.t)}</td></tr>`).join('')}</tbody></table></div>`;
+ if(tab==5){v.innerHTML=`<div class="card"><h3>ডাটা আপলোড</h3><p>কম্পিউটারে রাখা <b>seed.json</b> ফাইলটি দিন। এটি GitHub-এ তুলবেন না। একই সদস্যের তথ্য থাকলে নতুন তথ্য দিয়ে বদলে যাবে।</p><input type="file" id="sf" accept=".json"></div>`;
+  $('#sf').onchange=async e=>{try{const j=JSON.parse(await e.target.files[0].text());if(!await ask(bn(j.members.length)+' জন সদস্যের তথ্য আপলোড হবে। চালিয়ে যাবেন?','আপলোড'))return;const b=writeBatch(db);j.members.forEach(m=>b.set(doc(db,'members',m.id),m));j.cash.forEach((c,k)=>b.set(doc(db,'cash',String(k+1).padStart(4,'0')),{i:k+1,...c}));await b.commit();await load();await summ();await log('seed আপলোড');toast('আপলোড সম্পন্ন');tab=2;render()}catch(x){toast('ফাইল পড়া যায়নি','er')}}}}
 </script></body></html>
