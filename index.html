@@ -26,7 +26,7 @@ td input{width:74px;padding:4px 6px}td input.t{width:130px}.err{color:#c0392b}.m
 <header><div><img src="logo.png" alt="লোগো"><b>নতুন দিগন্ত</b></div><button class="w" id="out" hidden>লগআউট</button></header>
 <main id="app"></main>
 <script type="module">
-const firebaseConfig={apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT.firebaseapp.com",projectId:"YOUR_PROJECT",appId:"YOUR_APP_ID"};
+const firebaseConfig={apiKey:"AIzaSyBBxgWr5hFBQVkreLZs4lqfZdwpDjJ2iS0",authDomain:"notun-digonto-87e1b.firebaseapp.com",projectId:"notun-digonto-87e1b",appId:"1:1030288632242:web:83a6c8bc16f57a863b1cab"};
 const V='10.14.1',B='https://www.gstatic.com/firebasejs/'+V+'/';
 const {initializeApp}=await import(B+'firebase-app.js');
 const A=await import(B+'firebase-auth.js'),F=await import(B+'firebase-firestore.js');
@@ -46,7 +46,7 @@ function authUI(msg=''){app$(`<div class="card auth"><h2>লগইন / অ্�
  $('#li').onclick=()=>A.signInWithEmailAndPassword(au,...cr()).catch(()=>authUI('নম্বর বা পাসওয়ার্ড ভুল'));
  $('#su').onclick=async()=>{const p=norm($('#ph').value);if(!/^01\d{9}$/.test(p))return authUI('সঠিক মোবাইল নম্বর দিন');signing=true;
   try{const c=await A.createUserWithEmailAndPassword(au,...cr());await setDoc(doc(db,'users',c.user.uid),{phone:p,status:'pending',role:'member',createdAt:serverTimestamp()});signing=false;route(c.user)}
-  catch(e){signing=false;authUI(e.code=='auth/email-already-in-use'?'এই নম্বরে অ্যাকাউন্ট আছে, লগইন করুন':'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন')}}}
+  catch(e){signing=false;authUI(e.code=='auth/email-already-in-use'?'এই নম্বরে অ্যাকাউন্ট আছে, লগইন করুন':e.code=='auth/weak-password'?'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন':'ত্রুটি: '+(e.code||e.message))}}}
 async function route(u){if(!u)return authUI();$('#out').hidden=false;
  const d=await getDoc(doc(db,'users',u.uid));if(!d.exists())return app$('<div class="card">অ্যাকাউন্ট তথ্য পাওয়া যায়নি।</div>');me={uid:u.uid,...d.data()};
  if(me.status=='pending')return app$('<div class="card"><h2>অনুমোদনের অপেক্ষায়</h2>অ্যাডমিন আপনার অ্যাকাউন্ট অনুমোদন করলে তথ্য দেখতে পারবেন। পরে আবার লগইন করুন।</div>');
