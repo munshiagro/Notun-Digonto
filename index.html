@@ -147,6 +147,26 @@ button.fab:not(.eye):not(.w){position:fixed;right:18px;bottom:24px;width:60px;he
 button.fab:not(.eye):not(.w):active{transform:translateY(4px);box-shadow:inset 0 2px 0 #fff7,0 2px 0 #8a4a07,0 6px 10px -2px #0009}
 .av{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid #fff;float:left;margin-right:12px}.dr .av{width:48px;height:48px;border-color:var(--line)}
 @media print{header,.tabs,.fab,#tc,.noprint,.ov,.hero{display:none!important}body{background:#fff}main{padding:0}.card{box-shadow:none;break-inside:avoid}}
+
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:24px 22px 28px;color:#fff;border:1px solid #ffffff2e;
+ background-image:radial-gradient(#ffffff30 1.2px,transparent 1.7px),radial-gradient(circle,#ffffff16 0 44px,transparent 45px),radial-gradient(circle,#ffffff12 0 20px,transparent 21px),repeating-linear-gradient(180deg,#22e0f06a 0 2px,transparent 2px 8px),radial-gradient(60% 80% at 100% 0%,#53e0a070,transparent),radial-gradient(55% 70% at 0% 100%,#f28a1e5c,transparent),linear-gradient(150deg,#06351f,#0f5a38 48%,#1f8a58);
+ background-size:20px 20px,110px 110px,50px 50px,100% 30px,100% 100%,100% 100%,100% 100%;
+ background-position:0 0,78% 14%,6% 66%,0 100%,0 0,0 0,0 0;background-repeat:repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+ box-shadow:inset 0 1px 0 #ffffff55,inset 0 -18px 30px #0a3a2555,0 22px 44px -14px #0f4d31d9,0 6px 14px -4px #0f4d3166}
+.hero>*{position:relative;z-index:1}
+.hero:before{content:"";position:absolute;left:auto;top:auto;right:-34px;bottom:-40px;width:150px;height:150px;border-radius:50%;z-index:0;pointer-events:none;
+ background:radial-gradient(circle at 38% 34%,#ffe6b8,#f7ac4f 48%,#e8791a 80%);box-shadow:0 0 70px 14px #f28a1e66;opacity:.92}
+.hero:after{z-index:1;animation:bob 4s ease-in-out infinite}
+.hero h2{display:inline-block;max-width:calc(100% - 80px);font-size:17px;font-weight:600;background:#ffffff1f;border:1px solid #ffffff3d;border-radius:99px;padding:1px 14px;text-shadow:none;margin:0 0 6px}
+.hero small{display:block;opacity:.85;letter-spacing:.3px}
+.hero b{font-size:clamp(36px,10vw,52px);line-height:1.25;letter-spacing:.5px;background:linear-gradient(180deg,#fff,#c9ffe3);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 4px 10px #0008)}
+.hero span.ch{background:#ffffff1c;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid #ffffff3d;box-shadow:0 4px 10px #0003;text-shadow:none}
+.prog{position:relative;overflow:hidden;margin-top:14px;background:#00000042;box-shadow:inset 0 3px 6px #000a,0 1px 0 #ffffff40}
+.prog i{position:relative;overflow:hidden;background:linear-gradient(90deg,#f28a1e,#ffd27a);box-shadow:0 0 14px #ffb54f99}
+.prog i:after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-40%;background:linear-gradient(90deg,transparent,#ffffff88,transparent);animation:shn 2.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@keyframes shn{to{left:110%}}
+@media(max-width:560px){.hero:before{width:110px;height:110px;right:-28px;bottom:-30px}}
+@media(prefers-reduced-motion:reduce){.hero:after,.prog i:after{animation:none}}
 </style></head><body>
 <header><div><img src="logo.png" alt="লোগো"><b>নতুন দিগন্ত</b></div><span style="display:flex;gap:8px"><button class="w" id="ins" hidden>📲 অ্যাপ ইনস্টল</button><button class="w" id="out" hidden>লগআউট</button></span></header>
 <main id="app"></main><div id="tc"></div>
